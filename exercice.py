@@ -4,16 +4,29 @@
 import random
 
 def get_first_part_of_name(name):
-	return ""
+	name_splitted=name.split('-')
+	Name=name_splitted[0].capitalize()
+	return f'Bonjour {Name}'
 
 def get_random_sentence(animals, adjectives, fruits):
-	return ""
+	adjective=adjectives[random.randrange(0,len(adjectives))]
+	animal=animals[random.randrange(0,len(animals))]
+	fruit=fruits[random.randrange(0, len(fruits))]
+	return f'Aujourd\'hui, j\'ai vu un {animal} s\'emparer d\'un panier {adjective} plein de {fruit}'
 
 def encrypt(text, shift):
-	return ""
+	result=''
+	for letter in text:
+		encrypted_letter=letter
+		if letter.isalpha():
+			index=ord(letter.upper())-ord('A')
+			encrypted_index=(index+shift)%26
+			encrypted_letter=chr(encrypted_index+ord('A'))
+		result+=encrypted_letter
+	return result
 
 def decrypt(encrypted_text, shift):
-	return ""
+	return encrypt(encrypted_text, -shift)
 
 
 if __name__ == "__main__":
